@@ -14,7 +14,9 @@ function startGame(
 ) {
   container.removeChildren();
   const { width: screenWidth, height: screenHeight } = app.screen;
-  const { floor, character, characterJump, obstacle, coin } = resources;
+  const {
+    floor, character, characterJump, obstacle, coin, inGameScorePlate,
+   } = resources;
     const terrainStartingY = screenHeight - 207;
 
     // create character
@@ -176,15 +178,26 @@ function startGame(
     };
 
     // Collision checks for character.
-
+    const scoreContainer = new PIXI.Container();
+    const scorePlateSprite = new PIXI.Sprite(inGameScorePlate.texture);
+    const coinIcon = new PIXI.Sprite(coin.texture);
     const scoreTracker = new ScoreTracker(
-      new Point(screenWidth - 100, 30),
-      new PIXI.Text('', { fontSize: 40, fontWeight: '900',  fill: 0x333333}),
+      new Point(0, 0),
+      new PIXI.Text('', { fontSize: 40, fontWeight: '900',  fill: 0xffffff}),
     );
+    scoreContainer.addChild(scorePlateSprite, coinIcon, scoreTracker.sprite);
 
-    scoreTracker.sprite.angle = -8;
+    scoreContainer.x = screenWidth - scoreContainer.width;
+    scoreContainer.y = 10;
+    coinIcon.width = coinIcon.width * 0.75;
+    coinIcon.height = coinIcon.height * 0.75;
+    scoreTracker.x = coinIcon.width / 2 + scoreContainer.width / 2
+      - scoreTracker.width / 2;
+    scoreTracker.y = scoreContainer.height / 2 - scoreTracker.height / 2;
 
-    container.addChild(scoreTracker.sprite);
+    scoreContainer.angle = -8;
+
+    container.addChild(scoreContainer);
 
     const movementTicker = (delta: number) => {
 
@@ -195,7 +208,7 @@ function startGame(
           app.ticker.remove(movementTicker);
           app.ticker.remove(jumpTicker);
           document.removeEventListener('keydown', keyDownHandler);
-          scoreTracker.sprite.renderable = false;
+          scoreContainer.renderable = false;
           const route = Routing.getRoute(['started-game', 'end-of-game']);
           route.info.score = scoreTracker.score;
           const currentRecords = localStorage.getItem('bunnyRecords');
@@ -240,6 +253,7 @@ export default function StartedGame(app: PIXI.Application): PIXI.Container {
   imageLoader.add('characterJump', 'assets/character-jump.png');
   imageLoader.add('obstacle', 'assets/stopper_idle.png');
   imageLoader.add('coin', 'assets/ui/collect_coin_icon.png');
+  imageLoader.add('inGameScorePlate', 'assets/ui/coin_score_plate.png');
   startedGameContainer.angle = 8;
   app.stage.addChild(startedGameContainer);
 
