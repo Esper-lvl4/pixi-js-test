@@ -235,11 +235,11 @@ function startGame(
 export default function StartedGame(app: PIXI.Application): PIXI.Container {
   const startedGameContainer = new PIXI.Container();
   const imageLoader = new PIXI.Loader();
-  imageLoader.add('floor', 'floor.png');
-  imageLoader.add('character', 'character.png');
-  imageLoader.add('characterJump', 'character-jump.png');
-  imageLoader.add('obstacle', 'stopper_idle.png');
-  imageLoader.add('coin', 'ui/collect_coin_icon.png');
+  imageLoader.add('floor', 'assets/floor.png');
+  imageLoader.add('character', 'assets/character.png');
+  imageLoader.add('characterJump', 'assets/character-jump.png');
+  imageLoader.add('obstacle', 'assets/stopper_idle.png');
+  imageLoader.add('coin', 'assets/ui/collect_coin_icon.png');
   startedGameContainer.angle = 8;
   app.stage.addChild(startedGameContainer);
 

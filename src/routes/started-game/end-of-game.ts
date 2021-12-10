@@ -9,17 +9,17 @@ export default function EndOfGameScreen(app: PIXI.Application): PIXI.Container {
   const backgroundBlock = new PIXI.Container();
 
   const plateLoader = new PIXI.Loader();
-  plateLoader.add('infoPlate', 'ui/info_plate_big.png');
-  plateLoader.add('okButton', 'ui/ok_button_active.png');
-  plateLoader.add('okButtonPress', 'ui/ok_button_press.png');
-  plateLoader.add('okButtonHover', 'ui/ok_button_hover.png');
-  plateLoader.add('plateHeader', 'ui/header_info_plate.png');
-  plateLoader.add('coin', 'ui/collect_coin_icon.png');
-  plateLoader.add('leadButton', 'ui/leadboard_button_active.png');
-  plateLoader.add('leadButtonPress', 'ui/leadboard_button_press.png');
-  plateLoader.add('leadButtonHover', 'ui/leadboard_button_hover.png');
-  plateLoader.add('rays', 'ui/rays.png');
-  plateLoader.add('star', 'ui/star.png');
+  plateLoader.add('infoPlate', 'assets/ui/info_plate_big.png');
+  plateLoader.add('okButton', 'assets/ui/ok_button_active.png');
+  plateLoader.add('okButtonPress', 'assets/ui/ok_button_press.png');
+  plateLoader.add('okButtonHover', 'assets/ui/ok_button_hover.png');
+  plateLoader.add('plateHeader', 'assets/ui/header_info_plate.png');
+  plateLoader.add('coin', 'assets/ui/collect_coin_icon.png');
+  plateLoader.add('leadButton', 'assets/ui/leadboard_button_active.png');
+  plateLoader.add('leadButtonPress', 'assets/ui/leadboard_button_press.png');
+  plateLoader.add('leadButtonHover', 'assets/ui/leadboard_button_hover.png');
+  plateLoader.add('rays', 'assets/ui/rays.png');
+  plateLoader.add('star', 'assets/ui/star.png');
 
   plateLoader.load((loader, resources) => {
     const { width: screenWidth, height: screenHeight } = app.screen;

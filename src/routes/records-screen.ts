@@ -154,16 +154,16 @@ function createRecordRow(config: {
 export default function RecordsScreen(app: PIXI.Application): PIXI.Container {
   const recordsScreenContainer = new PIXI.Container();
   const plateLoader = new PIXI.Loader();
-  plateLoader.add('infoPlate', 'ui/info_plate_big.png');
-  plateLoader.add('plateHeader', 'ui/header_info_plate.png');
-  plateLoader.add('okButton', 'ui/ok_button_active.png');
-  plateLoader.add('okButtonPress', 'ui/ok_button_press.png');
-  plateLoader.add('okButtonHover', 'ui/ok_button_hover.png');
-  plateLoader.add('firstPlace', 'ui/place_1.png');
-  plateLoader.add('secondPlace', 'ui/place_2.png');
-  plateLoader.add('thirdPlace', 'ui/place_3.png');
-  plateLoader.add('topTen', 'ui/midleader_name_plate.png');
-  plateLoader.add('scorePlate', 'ui/highleader_scores_plate.png');
+  plateLoader.add('infoPlate', 'assets/ui/info_plate_big.png');
+  plateLoader.add('plateHeader', 'assets/ui/header_info_plate.png');
+  plateLoader.add('okButton', 'assets/ui/ok_button_active.png');
+  plateLoader.add('okButtonPress', 'assets/ui/ok_button_press.png');
+  plateLoader.add('okButtonHover', 'assets/ui/ok_button_hover.png');
+  plateLoader.add('firstPlace', 'assets/ui/place_1.png');
+  plateLoader.add('secondPlace', 'assets/ui/place_2.png');
+  plateLoader.add('thirdPlace', 'assets/ui/place_3.png');
+  plateLoader.add('topTen', 'assets/ui/midleader_name_plate.png');
+  plateLoader.add('scorePlate', 'assets/ui/highleader_scores_plate.png');
 
   plateLoader.load((loader, resources) => {
     const route = Routing.getRoute('records-screen');

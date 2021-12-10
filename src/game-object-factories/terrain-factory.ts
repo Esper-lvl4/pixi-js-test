@@ -5,6 +5,7 @@ import Point from '../utility-classes/point';
 export class Terrain extends AbstractGameObject {
   constructor(point: Point, sprite: PIXI.Sprite) {
     super(point, sprite);
+    this.sprite.texture.baseTexture.setSize(1280, 414);
     this.sprite.texture.frame = new PIXI.Rectangle(0, 0, 1280, 207);
     this.sprite.width = 1280;
     this.sprite.height = 207;
